@@ -2,23 +2,14 @@ import React, { useEffect, useState } from 'react'
 
 import api from 'modules/api/api'
 import { JOBS } from 'modules/api/endpoints'
+import { useSelector } from 'react-redux'
 
 const Jobs = () => {
-  const [data, setData] = useState([])
-  useEffect(() => {
-    const fetchData = async () => {
-      const response = await api(JOBS)
-      setData(response)
-    }
-    fetchData()
-  }, [])
+  const state = useSelector(state => state)
+  console.log(state)
   return (
     <div>
-      {data?.map(item => (
-        <div key={item.id} >
-          {item.title}
-        </div>
-      ))}
+
     </div>
   )
 }
